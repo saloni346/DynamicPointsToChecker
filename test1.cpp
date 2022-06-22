@@ -7,21 +7,24 @@
 using namespace std;
 
 int main() {
-  uintptr_t x, a, b, *p;
+  int x, a, b, *p;
+  cout << "Enter the value of x,a,b " << endl;
   cin >> x >> a >> b;
-  set<uintptr_t> s1;
-  s1.insert(reinterpret_cast<uintptr_t>(&a));
-  s1.insert(reinterpret_cast<uintptr_t>(&b));
-  s1.insert(reinterpret_cast<uintptr_t>(&x));
-  cout << &a << " " << &b << " " << &x << " " << endl;
-  cout << CheckPoint(p, s1) << "checkpoint 1" << endl;
+
+  set<int *> s1;
+  s1.insert(&a);
+  s1.insert(&b);
+  s1.insert(&x);
+
+  cout << "checkpoint 1 " << CheckPoint(p, s1) << endl;
   if (x) {
     p = &a;
-    cout << CheckPoint(p, s1) << "checkpoint 2" << endl;
+    cout << "checkpoint 2 " << CheckPoint(p, s1) << endl;
   } else {
     p = &b;
-    cout << CheckPoint(p, s1) << "checkpoint 3" << endl;
+    cout << "checkpoint 3 " << CheckPoint(p, s1) << endl;
   }
-  cout << CheckPoint(p, s1) << "checkpoint 4" << endl;
+  cout << "checkpoint 4 " << CheckPoint(p, s1) << endl;
   return 0;
 }
+

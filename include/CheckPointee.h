@@ -4,15 +4,16 @@
 
 using namespace std;
 
-bool CheckPoint(uintptr_t *pointer, set<uintptr_t> pointee) {
-  set<uintptr_t>::iterator itr;
+bool CheckPoint(int *pointer, set<int *> pointee) {
+  set<int *>::iterator itr;
+  cout << "Address of the pointees in the set " << endl;
   for (itr = pointee.begin(); itr != pointee.end(); itr++) {
     cout << *itr << " ";
   }
-  cout << reinterpret_cast<uintptr_t>(pointer);
-  cout << pointer << endl;
+  cout << endl;
+  cout << "Address of the pointer =" << pointer << endl;
   for (itr = pointee.begin(); itr != pointee.end(); itr++) {
-    if (reinterpret_cast<uintptr_t>(pointer) == *itr)
+    if (pointer == *itr)
       break;
   }
   if (itr == pointee.end())
