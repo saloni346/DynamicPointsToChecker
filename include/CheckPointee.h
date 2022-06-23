@@ -1,23 +1,29 @@
 #include <cstdint>
 #include <iostream>
 #include <set>
+#include <utility>
 
 using namespace std;
 
-bool CheckPoint(int *pointer, set<int *> pointee) {
-  set<int *>::iterator itr;
-  cout << "Address of the pointees in the set " << endl;
-  for (itr = pointee.begin(); itr != pointee.end(); itr++) {
-    cout << *itr << " ";
-  }
-  cout << endl;
-  cout << "Address of the pointer =" << pointer << endl;
-  for (itr = pointee.begin(); itr != pointee.end(); itr++) {
-    if (pointer == *itr)
+typedef pair<const char *, int *> pairs;
+
+void CheckPoint(int *pointer, set<pairs> &pointee) {
+  bool found = false;
+  const char *temp;
+	cout<<"set of pointees : { ";
+	for (auto &x : pointee) {
+	cout<< x.first<<" ";}
+	cout<<" }";
+  for (auto &x : pointee) {
+    if (pointer == x.second) {
+      found = true;
+      temp = x.first;
       break;
+    }
   }
-  if (itr == pointee.end())
-    return false;
+  if (found == false)
+    cout << "\t pointer p : {} \t p doesn't belong"<< endl;
   else
-    return true;
+    cout << "\t pointer p : {"<< temp << "}\t p belong"<< endl;
 }
+
