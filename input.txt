@@ -1,0 +1,5 @@
+8 p:{a1,b1,x1} q:{a,b,x}
+10 p:{a1,b1,x1} q:{a,b,x}
+12 p:{a1,b1,x1} q:{a,b,x}
+15 p:{a1,b1,x1} q:{a,b,x}
+16 p:{a1,b1,x1} q:{a,b,x}

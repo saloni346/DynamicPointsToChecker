@@ -7,7 +7,7 @@ using namespace std;
 
 typedef pair<const char *, int *> pairs;
 
-void CheckPoint(int *pointer, set<pairs> &pointee) {
+void CheckPoint(int *pointer, set<pairs> &pointee , const char *pointer_name) {
   bool found = false;
   const char *temp;
 	cout<<"set of pointees : { ";
@@ -22,8 +22,8 @@ void CheckPoint(int *pointer, set<pairs> &pointee) {
     }
   }
   if (found == false)
-    cout << "\t pointer p : {} \t p doesn't belong"<< endl;
+    cout << "\t pointer "<<pointer_name<<" : {} \t "<<pointer_name<<" doesn't belong"<< endl;
   else
-    cout << "\t pointer p : {"<< temp << "}\t p belong"<< endl;
+    cout << "\t pointer "<<pointer_name<<" : {"<< temp << "}\t "<<pointer_name<<" belong"<< endl;
 }
 
