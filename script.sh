@@ -1,20 +1,18 @@
 #!/bin/bash
 
-inputfile="input.txt"
-testfile="newfile.cpp"
-cp -v test.cpp newfile.cpp
+cp -v $2 $3
 count=0
 index=0
 lineno=0
 pointee=
 first=0
 prevlineno=0
-sed -i '1i\#include <set>' $testfile 
-sed -i '2i\#include <utility>' $testfile
-sed -i '3i\#include "include/CheckPointee.h"' $testfile
-sed -i '4i\#define GET_VARIABLE_NAME(Variable) (#Variable)' $testfile
-sed -i '5i\typedef pair<const char *, int *> pairs;' $testfile
-sed -i '6i\set<pairs> s1;' $testfile
+sed -i '1i\#include <set>' $3 
+sed -i '2i\#include <utility>' $3
+sed -i '3i\#include "include/CheckPointee.h"' $3
+sed -i '4i\#define GET_VARIABLE_NAME(Variable) (#Variable)' $3
+#sed -i '5i\typedef pair<const char *, void *> pairs;' $3
+sed -i '5i\set<pairs> s1;' $3
 
 while read line
 do 
@@ -26,7 +24,7 @@ do
 			count=$((count+1))
 			if [ "$first" -eq 0 ]; 
 			then 
-				lineno=$((lineno+6)) 
+				lineno=$((lineno+5)) 
 				first=$((first+1))
 			fi
 			prevlineno=$word
@@ -43,7 +41,7 @@ do
 			done
 			index=$((index+3))
 			lineno=$((lineno+1))
-			sed -i "${lineno}i\cout<<\"At line no. ${prevlineno}  \";" $testfile
+			sed -i "${lineno}i\cout<<\"At line no. ${prevlineno}  \";" $3
 			for (( i=index;i<len;i++))
 			do
 				
@@ -52,20 +50,21 @@ do
 					pointee=${word:index:i-index}
 					index=$((i+1))
 					lineno=$((lineno+1))
-					sed -i "${lineno}i\s1.insert(make_pair((GET_VARIABLE_NAME(${pointee})), &${pointee}));" $testfile
+					sed -i "${lineno}i\s1.insert(make_pair((GET_VARIABLE_NAME(${pointee})), &${pointee}));" $3
 				fi
 				
 			done
 			lineno=$((lineno + 1))	
-			sed -i "${lineno}i\CheckPoint(${pointer}, s1 , GET_VARIABLE_NAME(${pointer}));" $testfile
+			sed -i "${lineno}i\CheckPoint(${pointer}, s1 , GET_VARIABLE_NAME(${pointer}));" $3
 			lineno=$((lineno + 1))
-			sed -i "${lineno}i\s1.clear();" $testfile	
+			sed -i "${lineno}i\s1.clear();" $3	
 		 fi
 	
 	done
 
-done < $inputfile
-g++ newfile.cpp && ./a.out
+done < $1
+#g++ newfile.cpp && ./a.out
+
 
 
 

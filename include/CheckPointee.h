@@ -5,15 +5,15 @@
 
 using namespace std;
 
-typedef pair<const char *, int *> pairs;
+typedef pair<const char *, void *> pairs;
 
-void CheckPoint(int *pointer, set<pairs> &pointee , const char *pointer_name) {
+void CheckPoint(void *pointer, set<pairs> &pointee , const char *pointer_name) {
   bool found = false;
   const char *temp;
 	cout<<"set of pointees : { ";
 	for (auto &x : pointee) {
 	cout<< x.first<<" ";}
-	cout<<" }";
+	cout<<"}";
   for (auto &x : pointee) {
     if (pointer == x.second) {
       found = true;
@@ -22,8 +22,10 @@ void CheckPoint(int *pointer, set<pairs> &pointee , const char *pointer_name) {
     }
   }
   if (found == false)
-    cout << "\t pointer "<<pointer_name<<" : {} \t "<<pointer_name<<" doesn't belong"<< endl;
+    cout << "\t pointer "<<pointer_name<<" : {} \t "<<"Test Fail"<< endl;
   else
-    cout << "\t pointer "<<pointer_name<<" : {"<< temp << "}\t "<<pointer_name<<" belong"<< endl;
+    cout << "\t pointer "<<pointer_name<<" : {"<< temp << "}\t "<<" Test pass"<< endl;
+  //eturn found;
 }
+
 

@@ -1,0 +1,1 @@
+9 fp[0]:{add,sub,mul,div}
