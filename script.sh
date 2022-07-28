@@ -50,12 +50,12 @@ do
 					pointee=${word:index:i-index}
 					index=$((i+1))
 					lineno=$((lineno+1))
-					sed -i "${lineno}i\s1.insert(make_pair((GET_VARIABLE_NAME(${pointee})), &${pointee}));" $3
+					sed -i "${lineno}i\s1.insert(make_pair((GET_VARIABLE_NAME(${pointee})), reinterpret_cast<void*>(&${pointee})));" $3
 				fi
 				
 			done
 			lineno=$((lineno + 1))	
-			sed -i "${lineno}i\CheckPoint(${pointer}, s1 , GET_VARIABLE_NAME(${pointer}));" $3
+			sed -i "${lineno}i\CheckPoint(reinterpret_cast<void*>(${pointer}), s1 , GET_VARIABLE_NAME(${pointer}));" $3
 			lineno=$((lineno + 1))
 			sed -i "${lineno}i\s1.clear();" $3	
 		 fi

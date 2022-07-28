@@ -5,7 +5,8 @@
 
 using namespace std;
 
-typedef pair<const char *, void *> pairs;
+//emplate <typename T>
+typedef pair<const char *, void*> pairs;
 
 void CheckPoint(void *pointer, set<pairs> &pointee , const char *pointer_name) {
   bool found = false;

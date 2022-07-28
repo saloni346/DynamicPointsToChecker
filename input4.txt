@@ -1,1 +1,7 @@
-9 fp[0]:{add,sub,mul,div}
+9 fp[0]:{add,sub,mul,divi} fp[1]:{add,sub,mul,divi} fp[2]:{add,sub,mul,divi} fp[3]:{add,sub,mul,divi}
+15 fp[0]:{add,sub,mul,divi} fp[1]:{add,sub,mul,divi} fp[2]:{add,sub,mul,divi} fp[3]:{add,sub,mul,divi} 
+17 fp[0]:{add,sub,mul,divi} fp[1]:{add,sub,mul,divi} fp[2]:{add,sub,mul,divi} fp[3]:{add,sub,mul,divi}
+19 fp[0]:{add,sub,mul,divi} fp[1]:{add,sub,mul,divi} fp[2]:{add,sub,mul,divi} fp[3]:{add,sub,mul,divi}
+21 fp[0]:{add,sub,mul,divi} fp[1]:{add,sub,mul,divi} fp[2]:{add,sub,mul,divi} fp[3]:{add,sub,mul,divi}
+23 fp[0]:{add,sub,mul,divi} fp[1]:{add,sub,mul,divi} fp[2]:{add,sub,mul,divi} fp[3]:{add,sub,mul,divi}
+

@@ -1,12 +1,8 @@
 #!/bin/bash
 
-for((i=1;i<=3;i++)) 
+cd build
+for((i=1;i<=5;i++)) 
 do
-	./script.sh input"${i}".txt test"${i}".c newfile"${i}".cpp 
-done
-cd build && cmake .. && make 
-for((i=1;i<=3;i++)) 
-do
-	echo "Test case "$i""
+	echo "Test program "$i""
 	./test"${i}"
 done

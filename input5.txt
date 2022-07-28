@@ -1,0 +1,2 @@
+21 stu_data_ptr:{stu_data}
+24 stu_data_ptr:{stu_data}

@@ -2,7 +2,7 @@
     float add(float,int);  
     float sub(float,int);  
     float mul(float,int);  
-    float div(float,int);  
+    float divi(float,int);  
     
     void func(float x,int y)  
     {  
@@ -11,7 +11,7 @@
         fp[0]=add;              // assigning addresses to the elements of an array of a function   pointer.  
         fp[1]=sub;  
         fp[2]=mul;  
-        fp[3]=div;  
+        fp[3]=divi;  
         
       float r=(*fp[0]) (x,y);        // Calling add() function.  
          
@@ -39,7 +39,7 @@
         float a=x*y;  
         return a;  
     }  
-    float div(float x,int y)  
+    float divi(float x,int y)  
     {  
         float a=x/y;  
         return a;  
